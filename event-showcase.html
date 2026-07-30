@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Showcase | Wolves Tech Initiative</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-placeholder.svg" alt="Wolves Tech Initiative Logo" class="brand-logo">
+      Wolves Tech Initiative
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <span class="divider">|</span>
+      <a href="event-showcase.html">Events Showcase</a>
+      <span class="divider">|</span>
+      <a href="about.html">About</a>
+      <span class="divider">|</span>
+      <a href="contact.html">Contact</a>
+      <span class="divider">|</span>
+      <a href="donate.html">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="showcase-intro">
+      <h1>Events Showcase</h1>
+      <p>Photos and videos from our competitions, mentoring sessions, and community outreach.</p>
+    </section>
+
+    <section class="category-section">
+      <div class="category-header">
+        <h2>FIRST Tech Challenge</h2>
+        <p>Regional, state, and world championship moments from our FTC team.</p>
+      </div>
+      <div class="media-grid" id="gallery-ftc"></div>
+    </section>
+
+    <section class="category-section">
+      <div class="category-header">
+        <h2>FIRST LEGO League</h2>
+        <p>Highlights from FLL competitions and the teams we mentor.</p>
+      </div>
+      <div class="media-grid" id="gallery-fll"></div>
+    </section>
+
+    <section class="category-section">
+      <div class="category-header">
+        <h2>Joint Outreach</h2>
+        <p>Outreach with both the FTC teams at the high school and the FLL teams at the middle school.</p>
+      </div>
+      <div class="media-grid" id="gallery-joint"></div>
+    </section>
+
+    <section class="category-section">
+      <div class="category-header">
+        <h2>Other Outreach</h2>
+        <p>Community events and STEM outreach beyond competition season.</p>
+      </div>
+      <div class="media-grid" id="gallery-outreach"></div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <div id="lightbox-media"></div>
+      <div id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <p>Email: info@wolvestechinitiative.org</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/nav.js"></script>
+  <script src="assets/gallery.js"></script>
+</body>
+</html>
