@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Futura", "Century Gothic", "Trebuchet MS", sans-serif;
   background: var(--purple-tint);
   color: var(--dark);
   display: flex;
@@ -40,6 +40,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.6rem;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -76,7 +78,7 @@ a {
 
 .nav a {
   color: var(--white);
-  padding: 0.25rem 0.2rem;
+  padding: 0.35rem 0.3rem;
   transition: color 0.15s ease;
 }
 
@@ -105,7 +107,7 @@ main {
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 5vw + 1rem, 2.4rem);
   color: var(--purple-darker);
   margin: 0.5rem 0 1.5rem;
 }
@@ -127,7 +129,14 @@ main {
   margin-top: 1rem;
 }
 
+.hero-buttons .btn {
+  min-width: 220px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .btn {
+  display: inline-block;
   background: var(--purple);
   color: var(--white);
   padding: 0.85rem 1.75rem;
@@ -157,7 +166,7 @@ main {
 
 .page-content h1 {
   color: var(--purple-dark);
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 4vw + 1rem, 2.2rem);
   margin-bottom: 1rem;
 }
 
@@ -213,7 +222,7 @@ main {
 
 .showcase-intro h1 {
   color: var(--purple-darker);
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 4vw + 1rem, 2.2rem);
   margin-bottom: 0.75rem;
 }
 
@@ -237,7 +246,7 @@ main {
 
 .category-header h2 {
   color: var(--purple-darker);
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw + 0.8rem, 1.6rem);
   margin: 0 0 0.35rem;
 }
 
@@ -439,7 +448,7 @@ main {
 
 .mission-section h2 {
   color: var(--purple-darker);
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw + 0.8rem, 1.6rem);
   margin-bottom: 0.75rem;
 }
 
@@ -458,26 +467,34 @@ main {
 
 .board-section h2 {
   color: var(--purple-darker);
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw + 0.8rem, 1.6rem);
   text-align: center;
   margin-bottom: 1.75rem;
 }
 
 .board-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
 }
 
+.board-card {
+  flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+  max-width: calc((100% - 2 * 1.75rem) / 3);
+}
+
 @media (max-width: 800px) {
-  .board-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .board-card {
+    flex-basis: calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
   }
 }
 
 @media (max-width: 520px) {
-  .board-grid {
-    grid-template-columns: 1fr;
+  .board-card {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
@@ -488,12 +505,6 @@ main {
   text-align: center;
   box-shadow: 0 4px 14px rgba(46, 16, 101, 0.12);
   border: 1px solid rgba(124, 58, 237, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.board-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(46, 16, 101, 0.22);
 }
 
 .board-headshot-wrap {
@@ -585,6 +596,7 @@ main {
 
 .form-field input,
 .form-field textarea {
+  width: 100%;
   font: inherit;
   padding: 0.65rem 0.75rem;
   border-radius: 8px;
@@ -646,8 +658,9 @@ main {
   max-width: 900px;
   margin: 2rem auto 3.5rem;
   padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
 }
 
@@ -658,6 +671,8 @@ main {
   text-align: center;
   box-shadow: 0 4px 14px rgba(46, 16, 101, 0.12);
   border: 1px solid rgba(124, 58, 237, 0.1);
+  flex: 0 0 200px;
+  max-width: 200px;
 }
 
 .donate-method h3 {
