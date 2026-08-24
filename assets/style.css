@@ -529,15 +529,8 @@ main {
 }
 
 .board-card {
-  flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
-  max-width: calc((100% - 2 * 1.75rem) / 3);
-}
-
-@media (max-width: 800px) {
-  .board-card {
-    flex-basis: calc((100% - 1.75rem) / 2);
-    max-width: calc((100% - 1.75rem) / 2);
-  }
+  flex: 0 0 calc((100% - 1.75rem) / 2);
+  max-width: calc((100% - 1.75rem) / 2);
 }
 
 @media (max-width: 520px) {
