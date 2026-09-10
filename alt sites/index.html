@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WTI Photo Positioner</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/png" href="assets/wolves-tech-logo.png">
+</head>
+<body>
+  <header class="tool-header">
+    <img src="assets/wolves-tech-logo.png" alt="Wolves Tech Initiative Logo" class="tool-logo">
+    <div>
+      <h1>Photo Positioner</h1>
+      <p>Resize, zoom, and drag photos to match a spot on the site. Everything happens in your browser &mdash; nothing is uploaded anywhere.</p>
+    </div>
+  </header>
+
+  <main class="tool-main">
+    <section class="panel add-panel">
+      <h2>1. Add a photo</h2>
+      <label class="file-drop" id="fileDrop">
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+        <span>Click to choose photo(s), or drag &amp; drop here</span>
+      </label>
+
+      <button type="button" id="browsePhotosBtn" class="btn-secondary full-width">Browse Photos folder</button>
+      <div class="photos-browser" id="photosBrowser" hidden>
+        <div class="photos-browser-actions">
+          <button type="button" id="selectAllPhotosBtn" class="btn-secondary">Select all</button>
+          <button type="button" id="addSelectedPhotosBtn" class="btn-primary">Add selected</button>
+        </div>
+        <ul class="photos-browser-list" id="photosBrowserList"></ul>
+      </div>
+
+      <h2>2. Where will it go?</h2>
+      <label class="field">
+        Frame
+        <select id="frameSelect">
+          <option value="headshot">Board headshot (circle)</option>
+          <option value="gallery">Event gallery thumbnail (4:3)</option>
+          <option value="square">Square / logo spot</option>
+          <option value="custom">Custom aspect ratio</option>
+        </select>
+      </label>
+      <div class="field custom-ratio" id="customRatioRow" hidden>
+        <label>W <input type="number" id="ratioW" value="1" min="1" step="1"></label>
+        <label>H <input type="number" id="ratioH" value="1" min="1" step="1"></label>
+      </div>
+
+      <h2>Photos</h2>
+      <ul class="image-list" id="imageList">
+        <li class="empty-hint">No photos added yet.</li>
+      </ul>
+    </section>
+
+    <section class="panel edit-panel">
+      <h2>3. Adjust</h2>
+      <div class="frame-stage" id="frameStage">
+        <div class="frame-box" id="frameBox">
+          <img id="editImg" alt="" draggable="false" hidden>
+          <span class="frame-placeholder" id="framePlaceholder">Add and select a photo to start</span>
+        </div>
+      </div>
+
+      <div class="controls" id="controls" hidden>
+        <label class="field">
+          Zoom
+          <input type="range" id="zoomSlider" min="1" max="4" step="0.01" value="1">
+        </label>
+        <div class="readout">
+          <span id="zoomReadout">Zoom: 1.00x</span>
+          <span id="posReadout">Position: 0.0%, 0.0%</span>
+        </div>
+        <div class="button-row">
+          <button type="button" id="resetBtn" class="btn-secondary">Reset</button>
+          <button type="button" id="saveBtn" class="btn-primary">Save position</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel results-panel">
+      <h2>4. Saved positions</h2>
+      <p class="hint">Save each photo once it looks right, then copy the snippet (or "Copy all") and tell Claude to update the site with it.</p>
+      <div class="results-actions">
+        <button type="button" id="copyAllBtn" class="btn-secondary">Copy all as JSON</button>
+        <button type="button" id="clearAllBtn" class="btn-secondary">Clear saved</button>
+      </div>
+      <ul class="results-list" id="resultsList">
+        <li class="empty-hint">Nothing saved yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
